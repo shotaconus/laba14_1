@@ -9,6 +9,7 @@
 Vector createVector(size_t n) {
     Vector a;
     a.size = n;
+
     if (!malloc(n * sizeof(int))) {
         fprintf(stderr, "bad alloc");
         exit(1);
@@ -74,6 +75,7 @@ void pushBack(Vector *v, int x) {
     } else if (isEmpty(v)) {
         createVector(1);
     }
+
     v->data[v->size] = x;
     v->size += 1;
 }
@@ -81,6 +83,7 @@ void pushBack(Vector *v, int x) {
 void popBack(Vector *v) {
     if (isEmpty(v)) {
         fprintf(stderr, "bad alloc");
+
         exit(1);
     } else {
         v->size--;
@@ -90,6 +93,7 @@ void popBack(Vector *v) {
 int* atVector(Vector *v, size_t index) {
     if (index >= v->size) {
         fprintf(stderr, "IndexError: a[%d] is not exists", index);
+
         exit(1);
     } else
         return &v->data[index];
@@ -98,6 +102,7 @@ int* atVector(Vector *v, size_t index) {
 int* back(Vector *v) {
     if (v->size == 0) {
         fprintf(stderr, "IndexError: a[back] is not exists");
+
         exit(1);
     } else {
         return &v->data[v->size - 1];
@@ -107,6 +112,7 @@ int* back(Vector *v) {
 int* front(Vector *v) {
     if (v->size == 0) {
         fprintf(stderr, "IndexError: a[front] is not exists");
+
         exit(1);
     } else {
         return &v->data[0];

@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdint.h>
 #include <assert.h>
 #include "vector.h"
 
@@ -9,7 +7,9 @@ void test_popBack_notEmptyVector() {
 
     assert(v.size == 1);
     popBack(&v);
+
     assert(v.size == 0);
+
     assert(v.capacity == 1);
 }
 void test_atVector_notEmptyVector() {
@@ -35,6 +35,7 @@ void test_front_oneElementInVector() {
 
     assert(front(&v) == &v.data[0]);
 }
+
 void test() {
     test_popBack_notEmptyVector();
 
@@ -47,6 +48,10 @@ void test() {
 
 int main() {
     test();
+
+/*    Vector v = createVector(1);
+
+    reserve(&v, SIZE_MAX);*/
 
     return 0;
 
